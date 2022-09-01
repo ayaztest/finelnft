@@ -25,8 +25,12 @@ export default async function generateMintSignature(
   const name = process.env.GOOGLE_SECRET_NAME;
 
   // Instantiates a client
-  const client = new SecretManagerServiceClient();
-
+   const client = new SecretManagerServiceClient({
+    credentials: {
+      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    },
+  });
   async function accessSecretVersion() {
     const [version] = await client.accessSecretVersion({
       name: name,
