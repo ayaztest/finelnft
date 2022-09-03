@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         const signedPayload =
           (await signedPayloadReq.json()) as SignedPayload721WithQuantitySignature;
 
-        console.log(signedPayload);
+        
 
         const nft = await signatureDrop?.signature.mint(signedPayload);
 
