@@ -72,13 +72,15 @@ const Home: NextPage = () => {
       {/* Top Section */}
       <h1 className={styles.h1}>PreSend Retail Investors</h1>
       <p className={styles.describe}>
-        In this Round, users who own one of our{" "}
+        In this Round, users who own one of our  
+{" "}
         <a href="https://opensea.io/collection/wfwolfpack">
-          Wolfer Finance Wolfpack Nfts
+          Wolfer Finance Wolfpack NFTs
         </a>{" "}
-        can mint for a Big Discount. However, for those who don&apos;t own an
-        Wolfer Finance Wolfpack NFT, they can still mint using the regular claim
-        round.
+        can mint 1 Week Prior to Whitelist & Public Sale for a DISCOUNT!!  However, for those who do not own a Wolfer Finance Wolfpack NFT, they can still mint using the Whitelist
+        <a href="https://mint.presend.io/">
+          Whitelist Minting Page
+        </a> (Starting October 1 at NOON CENTRAL US Time) or Public Sale Round (Starting October 8 at NOON CENTRAL US Time).
       </p>
       {address ? (
         <div className={styles.nftBoxGrid}>
@@ -116,9 +118,10 @@ const Home: NextPage = () => {
             />
             <h2 className={styles.selectBoxTitle}>Mint with WolfPack</h2>
             <p className={styles.selectBoxDescription}>
-              1 or 2 NFTs are priced at 225 and minting 3 or more at once gives
-              you even more discount at 200 each nft. Hurry up now before this
-              offer is over.
+              Minting 1 or 2 NFTs in a single transaction secures pricing at 225 BUSD per NFT, and 
+              minting 3 or more NFTs in a single transaction secures you an even larger discount at 200 BUSD per NFT. 
+
+Hurry now before this offer is closed for good!
             </p>
           </div>
         </div>
