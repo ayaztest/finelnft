@@ -45,11 +45,10 @@ const Home: NextPage = () => {
       }),
     });
 
-    console.log(signedPayloadReq);
 
     if (signedPayloadReq.status === 400) {
       alert(
-        "Looks like you don't own an Wolfer Finance NFT :( You don't qualify for the free mint."
+        "Looks like you don't own an Wolfer Finance NFT :( You don't qualify for the Discount mint."
       );
       return;
     } else {
