@@ -10,7 +10,7 @@ export default async function generateMintSignature(
   const { quantity } = JSON.parse(req.body);
 
   // Get the Early Access NFT Drop contract
-  const polygonSDK = new ThirdwebSDK("polygonSDK"); // change to real chain of wolfer NFT
+  const polygonSDK = new ThirdwebSDK("polygon"); // change to real chain of wolfer NFT
   const earlyAccessNfts = polygonSDK.getNFTDrop(
     "0xCe8A6E03e6996f259191a18c4E2Aa398319b04E9"
   ); // change to real smart contract address of wolfer NFT
