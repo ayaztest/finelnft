@@ -10,9 +10,9 @@ export default async function generateMintSignature(
   const { quantity } = JSON.parse(req.body);
 
   // Get the Early Access NFT Drop contract
-  const polygonSDK = new ThirdwebSDK("mumbai"); // change to real chain of wolfer NFT
+  const polygonSDK = new ThirdwebSDK("polygonSDK"); // change to real chain of wolfer NFT
   const earlyAccessNfts = polygonSDK.getNFTDrop(
-    "0xC1e999eD13297bcd4216281cf0524441abA1711a"
+    "0xCe8A6E03e6996f259191a18c4E2Aa398319b04E9"
   ); // change to real smart contract address of wolfer NFT
 
   let userHasToken = false;
@@ -64,7 +64,7 @@ export default async function generateMintSignature(
   );
 
   const signatureDrop = BinanceSmartChainMainnetSDK.getSignatureDrop(
-    "0xE62d775E3Cc91659034dFC3b09a46259D6942c2c"
+    "0x1615600fE62ed38342F82eb9785029A2b1290DAF"
   );
 
   // If the user has an early access NFT, generate a mint signature
