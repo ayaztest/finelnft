@@ -23,7 +23,7 @@ const Home: NextPage = () => {
   const [, switchNetwork] = useNetwork();
 
   const signatureDrop = useSignatureDrop(
-    "0xE62d775E3Cc91659034dFC3b09a46259D6942c2c"
+    "0x1615600fE62ed38342F82eb9785029A2b1290DAF"
   );
 
   async function claimWithSignature() {
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
       <h1 className={styles.h1}>PreSend Retail Investors</h1>
       <p className={styles.describe}>
         In this Round, users who own one of our{" "}
-        <a href="https://opensea.io/collection/thirdweb-community">
+        <a href="https://opensea.io/collection/wfwolfpack">
           Wolfer Finance Wolfpack Nfts
         </a>{" "}
         can mint for a Big Discount. However, for those who don&apos;t own an
