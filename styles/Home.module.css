@@ -102,8 +102,8 @@
 }
 
 .optionSelectBox {
-   transition: all 0.5s ease;
-  border-radius: 16px;
+   transition: all 1.5s ease;
+  border-radius: 3px;
   border: 2px solid #2cbca5;
   width: 48%;
   min-height: 200px;
@@ -117,13 +117,10 @@
   cursor: pointer;
 }
 .optionSelectBox:hover {
-   
+   border-radius: 16px;
  border: 5px solid;
   border-image: linear-gradient(45deg, purple, orange) 1;
--webkit-transition: border-image 2s ease-out;
-  -moz-transition: border-image 2s ease-out;
-  -o-transition: border-image 2s ease-out;
-  transition: border-image 2s ease-out;}
+}
 @media only screen and (max-width: 800px) {
   .nftBoxGrid {
     justify-content: center;
