@@ -103,7 +103,7 @@
 
 .optionSelectBox {
   border-radius: 16px;
-  border: 1px solid #ccc;
+  border: 2px solid 2cbca5;
   width: 48%;
   min-height: 200px;
   height: 100%;
@@ -115,7 +115,9 @@
   padding-right: 12px;
   cursor: pointer;
 }
-
+.optionSelectBox:hover {
+ border: 5px solid;
+  border-image: linear-gradient(45deg, purple, orange) 1;}
 @media only screen and (max-width: 800px) {
   .nftBoxGrid {
     justify-content: center;
