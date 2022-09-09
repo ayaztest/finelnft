@@ -100,7 +100,7 @@ const Home: NextPage = () => {
             <button
               className={`${styles.quantityControlButton}`}
               onClick={() => setQuantity(quantity + 1)}
-              disabled={quantity >= 10}
+              disabled={quantity >= 250}
             >
               +
             </button>
