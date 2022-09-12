@@ -81,6 +81,8 @@ const Home: NextPage = () => {
         <a href="https://mint.presend.io/">
           Whitelist Minting Page
         </a> (Starting October 1 at NOON CENTRAL US Time) or Public Sale Round (Starting October 8 at NOON CENTRAL US Time).
+        <br /><br />
+        By Clicking and connecting your metamask you agree to our <a href="https://presend.io/terms-of-service/"> Terms of Service.</a>
       </p>
       {address ? (
         <div className={styles.nftBoxGrid}>
