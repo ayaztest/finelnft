@@ -70,7 +70,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       {/* Top Section */}
-      <h1 className={styles.h1}>PreSend Retail Investors</h1>
+      <h1 className={styles.h1}>PreSend Retail Members</h1>
       <p className={styles.describe}>
         In this Round, users who own one of our  
 {" "}
