@@ -118,7 +118,7 @@ const Home: NextPage = () => {
               alt="signature-mint"
               className={styles.cardImg}
             />
-            <h2 className={styles.selectBoxTitle}>Mint with WolfPack</h2>
+            <h2 className={styles.selectBoxTitle}>CLICK HERE to Mint with WolfPack</h2>
             <p className={styles.selectBoxDescription}>
               Minting 1 or 2 NFTs in a single transaction secures pricing at 225 BUSD per NFT, and 
               minting 3 or more NFTs in a single transaction secures you an even larger discount at 200 BUSD per NFT. 
