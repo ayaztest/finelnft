@@ -112,6 +112,7 @@ const Home: NextPage = () => {
             className={styles.optionSelectBox}
             role="button"
             }
+            onClick={() => claimWithSignature()
           >
             <img
               src={"logo.png"}
