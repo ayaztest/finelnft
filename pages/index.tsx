@@ -110,9 +110,9 @@ const Home: NextPage = () => {
 
           <div
             className={styles.optionSelectBox}
-            role="button"
+            role="button"     onClick={() => claimWithSignature()
             }
-            onClick={() => claimWithSignature()
+        
           >
             <img
               src={"logo.png"}
