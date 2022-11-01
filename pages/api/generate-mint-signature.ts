@@ -73,9 +73,9 @@ export default async function generateMintSignature(
       mintStartTime: new Date(0), // now
     });
     res.status(200).json(mintSignature);
-  } else {
-    res.status(400).json({
-      message: 'User does not have an early access Wolfer NFT',
-    });
-  }
+  } 
+  
+  res.status(400).json({
+    message: 'User does not have an early access Wolfer NFT',
+  });
 }
