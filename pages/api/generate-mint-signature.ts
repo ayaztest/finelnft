@@ -39,9 +39,8 @@ export default async function generateMintSignature(
     ); // change to real smart contract address of wolfer NFT
 
     let userHasToken = false;
-    // Check each token in the Edition Drop
+    // Check each token in the NFT Drop
     const balance = await earlyAccessNfts?.balanceOf(address);
-    console.log({ earlyAccessNfts, balance: balance.toString() });
     if (balance.toNumber() > 0) {
       userHasToken = true;
     }
@@ -64,6 +63,8 @@ export default async function generateMintSignature(
       '0x1615600fE62ed38342F82eb9785029A2b1290DAF',
       'signature-drop',
     );
+
+    const price = quantity >= 3 ? "200" : "225";
 
     // If the user has an early access NFT, generate a mint signature
     if (userHasToken) {
