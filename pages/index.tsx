@@ -39,8 +39,6 @@ const Home: NextPage = () => {
       body: JSON.stringify({ address, quantity }),
     });
 
-    console.log(signedPayloadReq)
-
     if (signedPayloadReq.status === 400) {
       alert(
         "Looks like you don't own an Wolfer Finance NFT :( You don't qualify for the Discount mint.",
