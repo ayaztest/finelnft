@@ -1,19 +1,15 @@
 import {
   useAddress,
   useMetamask,
-  useSignatureDrop,
+  useContract,
   useNetwork,
   useNetworkMismatch,
   ConnectWallet,
-} from "@thirdweb-dev/react";
-
-import {
-  ChainId,
-  SignedPayload721WithQuantitySignature,
-} from "@thirdweb-dev/sdk";
-import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
-import { useState } from "react";
+} from '@thirdweb-dev/react';
+import { ChainId } from '@thirdweb-dev/sdk';
+import type { NextPage } from 'next';
+import styles from '../styles/Home.module.css';
+import { useState } from 'react';
 
 const Home: NextPage = () => {
   const [quantity, setQuantity] = useState(1); // default to 1
@@ -22,8 +18,9 @@ const Home: NextPage = () => {
   const isMismatch = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
 
-  const signatureDrop = useSignatureDrop(
-    "0x1615600fE62ed38342F82eb9785029A2b1290DAF"
+  const { contract: signatureDrop } = useContract(
+    '0x1615600fE62ed38342F82eb9785029A2b1290DAF',
+    'signature-drop',
   );
 
   async function claimWithSignature() {
@@ -38,27 +35,21 @@ const Home: NextPage = () => {
     }
 
     const signedPayloadReq = await fetch(`/api/generate-mint-signature`, {
-      method: "POST",
-      body: JSON.stringify({
-        address: address,
-        quantity: quantity,
-      }),
+      method: 'POST',
+      body: JSON.stringify({ address, quantity }),
     });
 
+    console.log(signedPayloadReq)
 
     if (signedPayloadReq.status === 400) {
       alert(
-        "Looks like you don't own an Wolfer Finance NFT :( You don't qualify for the Discount mint."
+        "Looks like you don't own an Wolfer Finance NFT :( You don't qualify for the Discount mint.",
       );
       return;
     } else {
       try {
-        const signedPayload =
-          (await signedPayloadReq.json()) as SignedPayload721WithQuantitySignature;
-
-        
-
-        const nft = await signatureDrop?.signature.mint(signedPayload);
+        const signedPayload = await signedPayloadReq.json();
+        await signatureDrop.signature.mint(signedPayload);
 
         alert(`Succesfully minted NFT!`);
       } catch (error: any) {
@@ -72,17 +63,20 @@ const Home: NextPage = () => {
       {/* Top Section */}
       <h1 className={styles.h1}>PreSend Retail Members</h1>
       <p className={styles.describe}>
-        In this Round, users who own one of our  
-{" "}
+        In this Round, users who own one of our{' '}
         <a href="https://opensea.io/collection/wfwolfpack">
           Wolfer Finance Wolfpack NFTs
-        </a>{" "}
-        can mint 1 Week Prior to Whitelist & Public Sale for a DISCOUNT!!  However, for those who do not own a Wolfer Finance Wolfpack NFT, they can still mint using the Whitelist
-        <a href="https://mint.presend.io/">
-          Whitelist Minting Page
-        </a> (Starting October 1 at NOON CENTRAL US Time) or Public Sale Round (Starting October 8 at NOON CENTRAL US Time).
-        <br /><br />
-        By Clicking and connecting your metamask you agree to our <a href="https://presend.io/terms-of-service/"> Terms of Service.</a>
+        </a>{' '}
+        can mint 1 Week Prior to Whitelist & Public Sale for a DISCOUNT!!
+        However, for those who do not own a Wolfer Finance Wolfpack NFT, they
+        can still mint using the Whitelist
+        <a href="https://mint.presend.io/">Whitelist Minting Page</a> (Starting
+        October 1 at NOON CENTRAL US Time) or Public Sale Round (Starting
+        October 8 at NOON CENTRAL US Time).
+        <br />
+        <br />
+        By Clicking and connecting your metamask you agree to our{' '}
+        <a href="https://presend.io/terms-of-service/"> Terms of Service.</a>
       </p>
       {address ? (
         <div className={styles.nftBoxGrid}>
@@ -110,27 +104,28 @@ const Home: NextPage = () => {
 
           <div
             className={styles.optionSelectBox}
-            role="button"     
+            role="button"
             onClick={() => claimWithSignature()}
-        
           >
             <img
-              src={"logo.png"}
+              src={'logo.png'}
               alt="signature-mint"
               className={styles.cardImg}
             />
-            <h2 className={styles.selectBoxTitle}>Wolfer Finance Round is Closed</h2>
+            <h2 className={styles.selectBoxTitle}>
+              Wolfer Finance Round is Closed
+            </h2>
             <p className={styles.selectBoxDescription}>
-              Minting 1 or 2 NFTs in a single transaction secures pricing at 225 BUSD per NFT, and 
-              minting 3 or more NFTs in a single transaction secures you an even larger discount at 200 BUSD per NFT. 
-
-Hurry now before this offer is closed for good!
+              Minting 1 or 2 NFTs in a single transaction secures pricing at 225
+              BUSD per NFT, and minting 3 or more NFTs in a single transaction
+              secures you an even larger discount at 200 BUSD per NFT. Hurry now
+              before this offer is closed for good!
             </p>
           </div>
         </div>
       ) : (
         <p>Please Connect Wallet Below</p>
-      )}{" "}
+      )}{' '}
       <div className={styles.margintop}>
         <ConnectWallet
           // Some customization of the button style
