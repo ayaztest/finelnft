@@ -40,7 +40,7 @@ export default async function generateMintSignature(
 
     let userHasToken = false;
     // Check each token in the Edition Drop
-    const balance = await earlyAccessNfts.balanceOf(address);
+    const balance = await earlyAccessNfts?.balanceOf(address);
     console.log({ earlyAccessNfts, balance: balance.toString() });
     if (balance.toNumber() > 0) {
       userHasToken = true;
@@ -67,7 +67,7 @@ export default async function generateMintSignature(
 
     // If the user has an early access NFT, generate a mint signature
     if (userHasToken) {
-      const mintSignature = await signatureDrop.signature.generate({
+      const mintSignature = await signatureDrop?.signature.generate({
         to: address, // Can only be minted by the address we checked earlier
         quantity: quantity,
         price: parseInt(quantity) < 3 ? '225' : '200',

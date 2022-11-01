@@ -47,7 +47,7 @@ const Home: NextPage = () => {
     } else {
       try {
         const signedPayload = await signedPayloadReq.json();
-        await signatureDrop.signature.mint(signedPayload);
+        await signatureDrop?.signature.mint(signedPayload);
 
         alert(`Succesfully minted NFT!`);
       } catch (error: any) {
