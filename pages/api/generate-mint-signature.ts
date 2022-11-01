@@ -45,7 +45,7 @@ export default async function generateMintSignature(
   }
 
   const PRIVATE_KEY = await accessSecretVersion();
-  
+
   if (!PRIVATE_KEY) {
     console.error('Missing ADMIN_PRIVATE_KEY environment variable');
     return res.status(500).json({
@@ -73,8 +73,8 @@ export default async function generateMintSignature(
       mintStartTime: new Date(0), // now
     });
     res.status(200).json(mintSignature);
-  } 
-  
+  }
+
   res.status(400).json({
     message: 'User does not have an early access Wolfer NFT',
   });
